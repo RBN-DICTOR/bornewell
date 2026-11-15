@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bornwell Academy | Sherikat, Juba</title>
+<meta name="description" content="Bornwell Academy, Sherikat, opposite Gumbo Basic Primary, Juba. Ask about a place on WhatsApp.">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--char:#22252b;--char2:#2e323a;--or:#ff6a1f;--grey:#eef0f3;--ink:#1b1d22;--muted:#5b616c;--accent:#ff6a1f;--r:14px;
+--d:'Sora','Trebuchet MS',sans-serif;--b:'Inter',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font:400 17px/1.65 var(--b);color:var(--ink);background:#fff;overflow-x:hidden}
+h1,h2,h3{font-family:var(--d);line-height:1.02;letter-spacing:-.035em;font-weight:800}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--or);outline-offset:3px}
+.wrap{width:min(1120px,92%);margin-inline:auto}
+h2{font-size:clamp(2.1rem,5vw,3.6rem);max-width:15ch}
+.lead{color:var(--muted);max-width:54ch;margin-top:14px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 26px;border-radius:10px;font:700 1rem var(--d);text-decoration:none;border:0;cursor:pointer;background:var(--or);color:var(--char);transition:transform .15s,box-shadow .2s}
+.btn:hover{box-shadow:0 12px 26px rgba(255,106,31,.35)}
+.btn:active{transform:scale(.97)}
+.btn-wa{background:#25d366;color:#05301a}
+.btn-line{background:transparent;border:2px solid currentColor}
+.btn svg{width:20px;height:20px;fill:currentColor}
+/* nav */
+header{position:sticky;top:0;z-index:60;background:var(--char);transition:box-shadow .3s}
+header.scrolled{box-shadow:0 8px 24px rgba(0,0,0,.3)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:78px;transition:height .3s}
+header.scrolled .nav{height:60px}
+.brand{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none;font:800 1.3rem var(--d);letter-spacing:-.03em}
+.mark{width:34px;height:34px;background:var(--or);color:var(--char);display:grid;place-items:center;border-radius:8px;transform:skewX(-8deg);font-weight:800}
+.links{display:flex;gap:26px;align-items:center;color:#fff}
+.links a:not(.btn){text-decoration:none;font-weight:500}
+.links a:not(.btn):hover{color:var(--or)}
+.links .btn{padding:10px 18px}
+.burger{display:none;background:none;border:2px solid var(--or);color:#fff;border-radius:10px;width:44px;height:44px;font-size:1.3rem;cursor:pointer}
+@media(max-width:860px){.burger{display:block}.links{position:absolute;top:100%;left:0;right:0;background:var(--char);flex-direction:column;padding:22px;gap:18px;display:none}.links.open{display:flex}}
+/* hero */
+.hero{background:var(--char);color:#fff;padding:90px 0 150px;position:relative;overflow:hidden;clip-path:polygon(0 0,100% 0,100% calc(100% - 5vw),0 100%)}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.4fr .6fr;gap:30px;align-items:center}
+.hero h1{font-size:clamp(3.4rem,10vw,8rem);position:relative;z-index:1}
+.hero h1 .l2{display:block;color:var(--or)}
+.band{position:absolute;left:-10%;right:-10%;top:52%;height:34%;background:rgba(255,106,31,.16);transform:skewY(-6deg) scaleX(0);transform-origin:0 50%;animation:band 1.1s .3s cubic-bezier(.7,0,.2,1) forwards}
+@keyframes band{to{transform:skewY(-6deg) scaleX(1)}}
+.hero p{margin:26px 0 34px;max-width:46ch;color:#c4c9d2;font-size:1.12rem;position:relative}
+.cta{display:flex;gap:14px;flex-wrap:wrap;position:relative}
+.hero .btn-line{color:#fff}
+.tilt-img{aspect-ratio:3/4;transform:skewY(-4deg);box-shadow:14px 14px 0 var(--or)}
+@media(max-width:860px){.hero .wrap{grid-template-columns:1fr}.tilt-img{display:none}}
+/* subject wall */
+.wall{padding:70px 0 90px}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+.tile{text-align:left;font:inherit;border:0;border-radius:var(--r);padding:26px;background:var(--grey);color:var(--ink);cursor:pointer;transition:background .25s,color .25s,transform .25s;min-height:150px;display:flex;flex-direction:column;justify-content:space-between}
+.tile h3{font-size:1.5rem}
+.tile .more{max-height:0;overflow:hidden;opacity:0;transition:max-height .4s,opacity .4s,margin .4s;font-size:.97rem}
+.tile .plus{font:800 1.8rem var(--d);color:var(--or);transition:transform .25s}
+.tile[aria-expanded=true]{background:var(--char);color:#fff}
+.tile[aria-expanded=true] .more{max-height:160px;opacity:1;margin-top:12px;color:#c4c9d2}
+.tile[aria-expanded=true] .plus{transform:rotate(45deg)}
+.tile .row{display:flex;justify-content:space-between;align-items:flex-start}
+@media(max-width:820px){.tiles{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.tiles{grid-template-columns:1fr}}
+/* why */
+.why{background:var(--grey);padding:12vw 0;clip-path:polygon(0 5vw,100% 0,100% calc(100% - 5vw),0 100%);margin:-5vw 0}
+.rows{display:grid;gap:70px;margin-top:50px}
+.rowx{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.rowx:nth-child(even) .pic{order:2}
+.pic{aspect-ratio:4/3;box-shadow:12px 12px 0 var(--or)}
+.rowx h3{font-size:clamp(1.7rem,3vw,2.4rem);margin-bottom:12px}
+.rowx p{color:var(--muted);max-width:44ch}
+@media(max-width:820px){.rowx{grid-template-columns:1fr}.rowx:nth-child(even) .pic{order:0}}
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px;counter-reset:s}
+.step{background:var(--char);color:#fff;border-radius:var(--r);padding:26px;counter-increment:s}
+.step::before{content:counter(s);display:block;font:800 3rem var(--d);color:var(--or);line-height:1;margin-bottom:10px}
+.step h3{font-size:1.3rem;margin-bottom:6px}
+.step p{color:#c4c9d2;font-size:.95rem}
+.adm{padding:100px 0 60px}
+@media(max-width:860px){.steps{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.steps{grid-template-columns:1fr}}
+/* enquire */
+.enq{background:var(--or);padding:12vw 0;clip-path:polygon(0 5vw,100% 0,100% 100%,0 100%);margin-top:30px;color:var(--char)}
+.enq .wrap{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.enq .lead{color:#3a2a20}
+form{background:var(--char);color:#fff;padding:30px;border-radius:20px;display:grid;gap:14px}
+label{display:grid;gap:6px;font-weight:600;font-size:.93rem}
+input,select,textarea{font:inherit;padding:13px 14px;border:2px solid #444a55;border-radius:10px;background:var(--char2);color:#fff}
+input:focus,select:focus,textarea:focus{border-color:var(--or);outline:0}
+@media(max-width:860px){.enq .wrap{grid-template-columns:1fr}}
+/* faq */
+.faq{max-width:780px;margin-top:30px}
+details{border-bottom:2px solid var(--grey);padding:20px 0}
+summary{cursor:pointer;font:700 1.25rem var(--d);list-style:none;display:flex;justify-content:space-between;gap:16px;letter-spacing:-.02em}
+summary::after{content:"+";font-size:1.6rem;color:var(--or);transition:transform .25s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{color:var(--muted);margin-top:10px;max-width:62ch}
+.visit{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:34px}
+.vbox{background:var(--grey);border-radius:var(--r);padding:32px}
+.vbox h3{font-size:1.5rem;margin-bottom:8px}
+@media(max-width:760px){.visit{grid-template-columns:1fr}}
+.sec{padding:80px 0}
+footer{background:var(--char);color:#9aa1ad;padding:34px 0 100px;font-size:.93rem}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+/* floating */
+.fab{position:fixed;right:20px;bottom:20px;z-index:70;display:flex;align-items:center;gap:10px;background:#25d366;color:#05301a;padding:14px 20px;border-radius:999px;font:700 1rem var(--d);text-decoration:none;box-shadow:0 12px 30px rgba(0,0,0,.3)}
+.fab svg{width:26px;height:26px;fill:currentColor}
+.totop{position:fixed;left:20px;bottom:20px;z-index:70;width:46px;height:46px;border-radius:10px;border:2px solid var(--or);background:var(--char);color:var(--or);cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s}
+.totop.show{opacity:1;pointer-events:auto}
+.bar{display:none}
+@media(max-width:700px){.fab span{display:none}.fab{padding:15px;bottom:78px}.totop{bottom:78px}
+.bar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:65;background:var(--char);padding:10px 16px;transition:transform .3s}
+.bar.hide{transform:translateY(110%)}.bar .btn{width:100%;justify-content:center}}
+/* FX */
+[data-reveal]{opacity:0;transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
+[data-reveal=up]{transform:translateY(44px)}
+[data-reveal=left]{transform:translateX(-70px)}
+[data-reveal=right]{transform:translateX(70px)}
+[data-reveal=zoom]{transform:scale(.85)}
+[data-reveal].in{opacity:1;transform:none}
+.fx-words span{display:inline-block;opacity:0;transform:translateY(.5em);transition:opacity .6s,transform .6s;transition-delay:calc(var(--i)*70ms)}
+.fx-words.in span{opacity:1;transform:none}
+.fx-progress{position:fixed;top:0;left:0;height:4px;width:100%;transform:scaleX(0);transform-origin:0 50%;background:var(--or);z-index:100}
+.fx-spot{position:fixed;inset:0;pointer-events:none;z-index:5;background:radial-gradient(340px circle at var(--mx,50%) var(--my,50%),rgba(255,106,31,.16),transparent 70%)}
+.ph-frame{overflow:hidden;border-radius:var(--r)}
+.ph-frame img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.ph-frame:hover img{transform:scale(1.05)}
+@media(prefers-reduced-motion:reduce){[data-reveal],.fx-words span{opacity:1!important;transform:none!important}.fx-spot{display:none}.band{animation:none;transform:skewY(-6deg)}}
+</style>
+</head>
+<body>
+<script>
+/* ===== EDIT PER SCHOOL ===== */
+const SCHOOL={name:"Bornwell Academy",phone:"211911315000",display:"+211 911 315 000",place:"Sherikat, opposite Gumbo Basic Primary, Juba"};
+const wa=t=>`https://wa.me/${SCHOOL.phone}?text=${encodeURIComponent(t)}`;
+const WA='<svg viewBox="0 0 32 32"><path d="M16 3C9 3 3.4 8.6 3.4 15.5c0 2.3.6 4.4 1.7 6.3L3 29l7.4-2c1.8 1 3.8 1.5 5.6 1.5 6.9 0 12.6-5.6 12.6-12.5S22.9 3 16 3zm6.5 17.6c-.3.8-1.6 1.5-2.2 1.6-.6.1-1.3.1-2.1-.1-.5-.2-1.2-.4-2-.8-3.6-1.6-5.9-5.2-6.1-5.4-.2-.2-1.4-1.9-1.4-3.6s.9-2.5 1.2-2.9c.3-.3.7-.4.9-.4h.7c.2 0 .5-.1.8.6l1 2.5c.1.2.1.4 0 .6l-.4.6-.6.6c-.2.2-.4.4-.2.8.2.3.9 1.5 2 2.4 1.4 1.2 2.5 1.6 2.9 1.8.3.2.5.1.7-.1l.9-1.1c.2-.3.5-.2.8-.1l2.4 1.1c.3.2.5.2.6.4.1.1.1.8-.2 1.6z"/></svg>';
+</script>
+
+<header>
+ <div class="wrap nav">
+  <a class="brand" href="#top"><span class="mark">B</span>Bornwell Academy</a>
+  <button class="burger" aria-label="Open menu" aria-expanded="false">☰</button>
+  <nav class="links" id="menu">
+   <a href="#subjects">Subjects</a><a href="#why">Why Bornwell</a><a href="#admissions">Admissions</a><a href="#faq">FAQ</a>
+   <a class="btn wa" data-msg="Hello Bornwell Academy, I would like to ask about a place." href="#">Ask about a place</a>
+  </nav>
+ </div>
+</header>
+
+<main id="top">
+<div class="hero">
+ <div class="band" aria-hidden="true"></div>
+ <div class="wrap">
+  <div>
+   <h1 data-words>Born to learn.</h1>
+   <h1 class="l2" data-words style="margin-top:.05em">Built to achieve.</h1>
+   <p data-reveal="up" style="--d:.7s">Bornwell Academy in Sherikat gives every pupil focused teaching, high expectations and the support to meet them.</p>
+   <div class="cta" data-reveal="up" style="--d:.9s">
+    <a class="btn btn-wa wa" data-msg="Hello Bornwell Academy, I would like to book a visit." href="#"><i class="wi"></i>Book a visit</a>
+    <a class="btn btn-line" href="#subjects">See subjects</a>
+   </div>
+  </div>
+  <div class="tilt-img" data-reveal="right" style="--d:.6s"><img data-ph="ball|#ff6a1f|#22252b|Sports and spirit"></div>
+ </div>
+</div>
+
+<section class="wall" id="subjects">
+ <div class="wrap">
+  <h2 data-reveal="up">The subject wall</h2>
+  <p class="lead" data-reveal="up">Tap a subject to see what pupils do in it. Ask us which subjects are taught in each class.</p>
+  <div class="tiles" data-stagger>
+   <button class="tile" aria-expanded="false"><span class="row"><h3>Mathematics</h3><span class="plus">+</span></span><span class="more">Number, problem solving and reasoning, practised through clear examples and regular exercises.</span></button>
+   <button class="tile" aria-expanded="false"><span class="row"><h3>English</h3><span class="plus">+</span></span><span class="more">Reading, writing, speaking and listening, with confidence in everyday and academic English.</span></button>
+   <button class="tile" aria-expanded="false"><span class="row"><h3>Science</h3><span class="plus">+</span></span><span class="more">Curiosity first: observe, ask, test and explain how the world works.</span></button>
+   <button class="tile" aria-expanded="false"><span class="row"><h3>Social Studies</h3><span class="plus">+</span></span><span class="more">People, places and history, helping pupils understand their community and country.</span></button>
+   <button class="tile" aria-expanded="false"><span class="row"><h3>ICT</h3><span class="plus">+</span></span><span class="more">Computer basics and digital skills for study and work. Confirm facilities with the school.</span></button>
+   <button class="tile" aria-expanded="false"><span class="row"><h3>Arts and Sport</h3><span class="plus">+</span></span><span class="more">Creative and active time that builds teamwork, discipline and joy in school.</span></button>
+  </div>
+ </div>
+</section>
+
+<section class="why" id="why">
+ <div class="wrap">
+  <h2 data-reveal="up">Why families choose Bornwell</h2>
+  <div class="rows">
+   <div class="rowx"><div class="pic" data-reveal="left"><img data-ph="lab|#22252b|#ff6a1f|Hands-on learning"></div><div data-reveal="right"><h3>Learning you can see</h3><p>Lessons are practical and clear, with regular tests and feedback so progress is never a mystery.</p></div></div>
+   <div class="rowx"><div class="pic" data-reveal="right"><img data-ph="book|#ff6a1f|#22252b|Focused study"></div><div data-reveal="left"><h3>High expectations, real support</h3><p>We expect pupils to work hard and we back them with teachers who help them get there.</p></div></div>
+   <div class="rowx"><div class="pic" data-reveal="left"><img data-ph="ball|#2e323a|#ff6a1f|Team spirit"></div><div data-reveal="right"><h3>Character as well as grades</h3><p>Discipline, respect and teamwork are part of every school day.</p></div></div>
+  </div>
+ </div>
+</section>
+
+<section class="adm" id="admissions">
+ <div class="wrap">
+  <h2 data-reveal="up">Four steps to join</h2>
+  <div class="steps" data-stagger>
+   <div class="step" data-reveal="zoom"><h3>Message us</h3><p>Tell us your child's age and class.</p></div>
+   <div class="step" data-reveal="zoom"><h3>Visit</h3><p>See the school and meet teachers.</p></div>
+   <div class="step" data-reveal="zoom"><h3>Apply</h3><p>Hand in details and previous reports.</p></div>
+   <div class="step" data-reveal="zoom"><h3>Start</h3><p>Confirm fees, collect your list, begin.</p></div>
+  </div>
+ </div>
+</section>
+
+<section class="enq" id="enquire">
+ <div class="wrap">
+  <div><h2 data-reveal="up">Ask about a place</h2><p class="lead">Send your question straight to our WhatsApp. It opens with your message ready.</p></div>
+  <form id="f">
+   <label>Parent name<input name="n" required autocomplete="name"></label>
+   <label>Class you are asking about<select name="c"><option>Nursery</option><option>Primary</option><option>Secondary</option></select></label>
+   <label>Your question<textarea name="q" rows="3" placeholder="e.g. Are places available this term?"></textarea></label>
+   <button class="btn btn-wa" type="submit"><i class="wi"></i>Send on WhatsApp</button>
+  </form>
+ </div>
+</section>
+
+<section class="sec" id="faq">
+ <div class="wrap">
+  <h2 data-reveal="up">Quick answers</h2>
+  <div class="faq">
+   <details><summary>Can I visit before deciding?</summary><p>Yes. Message us on WhatsApp and we will arrange a time.</p></details>
+   <details><summary>Which classes have places?</summary><p>Places change each term. Tell us your child's age and we will confirm.</p></details>
+   <details><summary>What are the fees?</summary><p>Ask on WhatsApp and we will send the current fee details.</p></details>
+   <details><summary>Where is the school?</summary><p>Sherikat, opposite Gumbo Basic Primary, Juba.</p></details>
+  </div>
+  <div class="visit">
+   <div class="vbox"><h3>Find us</h3><p>Sherikat, opposite Gumbo Basic Primary, Juba</p><p style="margin-top:16px"><a class="btn btn-line" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Bornwell+Academy+Sherikat+Juba">Open in Google Maps</a></p></div>
+   <div class="vbox"><h3>WhatsApp</h3><p>+211 911 315 000</p><p style="margin-top:16px"><a class="btn btn-wa wa" data-msg="Hello Bornwell Academy, I have a question." href="#"><i class="wi"></i>Chat now</a></p></div>
+  </div>
+ </div>
+</section>
+</main>
+
+<footer><div class="wrap"><span>© Bornwell Academy, Sherikat, Juba</span><span>Demo website design</span></div></footer>
+
+<button class="totop" data-top aria-label="Back to top" onclick="scrollTo({top:0,behavior:'smooth'})">↑</button>
+<a class="fab wa" data-msg="Hello Bornwell Academy, I found your website and have a question." href="#" aria-label="Chat on WhatsApp"><i class="wi"></i><span>WhatsApp us</span></a>
+<div class="bar" id="bar"><a class="btn btn-wa wa" data-msg="Hello Bornwell Academy, I have a question." href="#"><i class="wi"></i>Chat on WhatsApp</a></div>
+
+<script>
+const FX={cursor:'spotlight',accent:'#ff6a1f',tilt:false,magnet:true,parallax:true};
+function ph(kind,c1,c2,label){
+ const sc={
+  ball:`<circle cx="200" cy="140" r="56" fill="#fff" opacity=".92"/><path d="M200 86 226 120 213 162H187L174 120Z" fill="${c2}" opacity=".6"/><path d="M0 235H400V300H0Z" fill="#000" opacity=".15"/>`,
+  book:`<path d="M200 90C160 70 110 75 80 90V220C110 205 160 205 200 225 240 205 290 205 320 220V90C290 75 240 70 200 90Z" fill="#fff" opacity=".92"/><path d="M200 90V225" stroke="${c2}" stroke-width="4"/>`,
+  lab:`<path d="M180 78h40v50l46 82a15 15 0 0 1-13 22H147a15 15 0 0 1-13-22l46-82z" fill="#fff" opacity=".92"/><path d="M158 190h84" stroke="${c2}" stroke-width="6" opacity=".6"/>`};
+ const svg=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${c1}"/><stop offset="1" stop-color="${c2}"/></linearGradient></defs><rect width="400" height="300" fill="url(#g)"/>${sc[kind]||''}<text x="200" y="278" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#fff" opacity=".9">${label||'Photo space'}</text></svg>`;
+ return 'data:image/svg+xml;utf8,'+encodeURIComponent(svg)}
+document.querySelectorAll('img[data-ph]').forEach(i=>{const[a,b,c,d]=i.dataset.ph.split('|');i.src=ph(a,b,c,d);i.alt=d||'Photo space';i.parentElement.classList.add('ph-frame')});
+document.querySelectorAll('.wa').forEach(a=>a.href=wa(a.dataset.msg));
+document.querySelectorAll('.wi').forEach(s=>s.outerHTML=WA);
+const burger=document.querySelector('.burger'),menu=document.getElementById('menu');
+burger.onclick=()=>{const o=menu.classList.toggle('open');burger.setAttribute('aria-expanded',o)};
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{menu.classList.remove('open');burger.setAttribute('aria-expanded',false)}));
+document.querySelectorAll('.tile').forEach(t=>t.onclick=()=>t.setAttribute('aria-expanded',t.getAttribute('aria-expanded')!=='true'));
+document.getElementById('f').onsubmit=e=>{e.preventDefault();const d=new FormData(e.target);
+ window.open(wa(`Hello ${SCHOOL.name}, my name is ${d.get('n')}. I am asking about a place in ${d.get('c')}. ${d.get('q')||''}`),'_blank')};
+new IntersectionObserver(es=>document.getElementById('bar').classList.toggle('hide',es[0].isIntersecting)).observe(document.getElementById('enquire'));
+
+(function(){
+ const rm=matchMedia('(prefers-reduced-motion:reduce)').matches,fine=matchMedia('(pointer:fine)').matches,root=document.documentElement;
+ document.querySelectorAll('[data-stagger]').forEach(p=>[...p.children].forEach((c,i)=>{c.dataset.reveal=c.dataset.reveal||'zoom';c.style.setProperty('--d',i*.08+'s')}));
+ document.querySelectorAll('[data-words]').forEach(h=>{h.classList.add('fx-words');h.innerHTML=h.textContent.trim().split(/\s+/).map((w,i)=>`<span style="--i:${i}">${w}</span>`).join(' ')});
+ const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
+ document.querySelectorAll('[data-reveal],.fx-words').forEach(el=>io.observe(el));
+ const bar=document.createElement('div');bar.className='fx-progress';document.body.append(bar);
+ const nav=document.querySelector('header'),top=document.querySelector('[data-top]'),h1=document.querySelector('.hero h1');let tick=false;
+ const onScroll=()=>{if(tick)return;tick=true;requestAnimationFrame(()=>{const y=scrollY,h=root.scrollHeight-innerHeight;
+  bar.style.transform=`scaleX(${h>0?y/h:0})`;nav.classList.toggle('scrolled',y>40);top.classList.toggle('show',y>600);
+  if(!rm&&y<900)document.querySelector('.hero .wrap>div').style.transform=`translate3d(0,${y*-.08}px,0)`;tick=false})};
+ addEventListener('scroll',onScroll,{passive:true});onScroll();
+ if(rm||!fine)return;
+ const s=document.createElement('div');s.className='fx-spot';document.body.append(s);
+ addEventListener('pointermove',e=>{root.style.setProperty('--mx',e.clientX+'px');root.style.setProperty('--my',e.clientY+'px')},{passive:true});
+ document.querySelectorAll('.btn,.fab').forEach(b=>{b.addEventListener('pointermove',e=>{const r=b.getBoundingClientRect();b.style.translate=`${(e.clientX-r.left-r.width/2)*.2}px ${(e.clientY-r.top-r.height/2)*.3}px`});b.addEventListener('pointerleave',()=>b.style.translate='')});
+})();
+</script>
+</body>
+</html>
